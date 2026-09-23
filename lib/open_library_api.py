@@ -7,9 +7,12 @@ class Search:
         URL = f'https://openlibrary.org/search.json?title={search_term_format}'
         response = requests.get(URL).json()
         response_formatted = f'Title: {response['docs'][0]['title']}'
+        return response_formatted
+        
 
 
 book = input('Look for a book: ')
 result = Search().Get_books(book)
 
+print("Search Result:\n")
 print(result)
